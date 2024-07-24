@@ -21,6 +21,7 @@ pool.getConnection((err, conn) =>{
   if(err) console.log(err)
   console.log("Horee connect")
 })
+
 // Definisikan model
 const finansial = require('./finansial')(sequelize, Sequelize.DataTypes);
 const infor = require('./infor')(sequelize, Sequelize.DataTypes);
