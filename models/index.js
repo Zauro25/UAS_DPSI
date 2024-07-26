@@ -1,11 +1,15 @@
-// models/index.js
 const { Sequelize } = require('sequelize');
 
-// Konfigurasi koneksi Sequelize
-const sequelize = new Sequelize('projectDPSI', 'root', '', {
-  host: 'localhost',
+// Ganti kredensial dengan yang sesuai
+const sequelize = new Sequelize({
+  host: 'sql12.freesqldatabase.com',
   dialect: 'mysql',
   dialectModule: require('mysql2'),
+  username: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: 3306,  // Port default MySQL
+  logging: false, // Nonaktifkan logging SQL jika tidak diperlukan
 });
 
 // Definisikan model
