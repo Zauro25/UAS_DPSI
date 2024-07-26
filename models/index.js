@@ -4,7 +4,8 @@ const { Sequelize } = require('sequelize');
 // Konfigurasi koneksi Sequelize
 const sequelize = new Sequelize('projectDPSI', 'root', '', {
   host: 'localhost',
-  dialect: 'mysql2'
+  dialect: 'mysql',
+  dialectModule: require('mysql2'),
 });
 
 // Definisikan model
