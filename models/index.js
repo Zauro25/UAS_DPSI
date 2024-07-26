@@ -7,21 +7,6 @@ const sequelize = new Sequelize('projectDPSI', 'root', '', {
   dialect: 'mysql'
 });
 
-const pool = mysql.createPool({
-  host: proccess.env.HOST,
-  user: proccess.env.USERNAME,
-  password: proccess.env.PASSWORD,
-  database: proccess.env.DDMANE,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit:0
-})
-
-pool.getConnection((err, conn) =>{
-  if(err) console.log(err)
-  console.log("Horee connect")
-})
-
 // Definisikan model
 const finansial = require('./finansial')(sequelize, Sequelize.DataTypes);
 const infor = require('./infor')(sequelize, Sequelize.DataTypes);
