@@ -5,7 +5,7 @@ const { penugasan } = require('../models/index'); // Impor model penugasan
 const { authenticate, authorize } = require('../middleware/auth');
 
 // Endpoint untuk menambahkan penugasan baru
-router.post('/', authenticate, authorize(['pemilik']), async (req, res, next) => {
+router.post('/', authenticate, authorize(['pemilik']), async (req, res, next) => {   //hanya user dengan role pemilik yang dapat menambah tugas baru
   try {
     const { daftarTugas, idKaryawan } = req.body;
     const newPenugasan = await penugasan.create({ daftarTugas, idKaryawan });
@@ -40,7 +40,7 @@ router.get('/:id', authenticate, authorize, async (req, res, next) => {
 });
 
 // Endpoint untuk memperbarui penugasan berdasarkan ID
-router.put('/:id', authenticate, authorize(['karyawan']), async (req, res, next) => {
+router.put('/:id', authenticate, authorize(['karyawan']), async (req, res, next) => { //hanya karyawan yang dapat update kemajuan tugasnya
   try {
     const { laporanKemajuan } = req.body;
     const penugasanuhuyy = await penugasan.findByPk(req.params.id);
